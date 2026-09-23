@@ -67,10 +67,7 @@
         return;
       }
       
-      // Client format mapping (0 -> 00, 9 -> 09, else 1-8)
       let filename = i.toString();
-      if (i === 0) filename = '00';
-      if (i === 9) filename = '09';
       
       img.src = `${IMAGE_FOLDER}/${filename}.${EXTENSIONS[extIndex]}`;
     };
