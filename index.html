@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#0A0A0A" />
+  
+  <title>LOTUS HOTEL INN — Digital Dining Menu</title>
+  <meta name="description" content="Explore the LOTUS HOTEL INN digital menu — beverages, starters, Indian cuisine, biryani, global favourites and desserts." />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="LOTUS HOTEL INN — Digital Dining Menu" />
+  <meta property="og:description" content="Explore the LOTUS HOTEL INN digital menu — beverages, starters, Indian cuisine, biryani, global favourites and desserts." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://deepakparagi.github.io/LOTUS-MENU/" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ Ambient background particles ═══ -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ═══ Sticky Header ═══ -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="brand">
+        <svg class="lotus-svg" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 4C27 10 22 18 22 26C22 34 26 42 30 46C34 42 38 34 38 26C38 18 33 10 30 4Z" fill="url(#gold-grad)" opacity="0.9"/>
+          <path d="M30 10C24 16 14 22 10 30C6 38 10 44 30 46C50 44 54 38 50 30C46 22 36 16 30 10Z" fill="url(#gold-grad)" opacity="0.5"/>
+          <path d="M30 16C22 20 8 26 4 32C0 38 6 44 30 46C54 44 60 38 56 32C52 26 38 20 30 16Z" fill="url(#gold-grad)" opacity="0.3"/>
+          <defs>
+            <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#D4A574"/>
+              <stop offset="50%" stop-color="#F0D5A8"/>
+              <stop offset="100%" stop-color="#C49B5A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="brand-text">
+          <h1>LOTUS</h1>
+          <span class="brand-tagline">Fine Dining Experience</span>
+        </div>
+      </div>
+      <div class="header-accent">
+        <span class="page-indicator" id="page-indicator">Menu</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ Hero Section ═══ -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">✦ OUR MENU ✦</div>
+      <h2 class="hero-title">A Culinary<br/><em>Masterpiece</em></h2>
+      <p class="hero-subtitle">Scroll through our carefully curated menu</p>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Menu Gallery ═══ -->
+  <main class="menu-gallery" id="menu-gallery">
+    <!-- Images injected by JS -->
+  </main>
+
+  <!-- ═══ Fullscreen Viewer ═══ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 6 15 12 9 18"/>
+      </svg>
+    </button>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+    <img class="lightbox-img" id="lightbox-img" alt="Menu page fullscreen" />
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <!-- Large Lotus Logo -->
+      <div class="footer-lotus">
+        <svg viewBox="0 0 80 66" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-lotus-icon">
+          <path d="M40 4C36 12 30 24 30 36C30 48 34 58 40 64C46 58 50 48 50 36C50 24 44 12 40 4Z" fill="url(#fg1)" opacity="0.9"/>
+          <path d="M40 12C32 20 18 30 14 42C10 54 14 60 40 64C66 60 70 54 66 42C62 30 48 20 40 12Z" fill="url(#fg1)" opacity="0.5"/>
+          <path d="M40 20C30 26 12 34 6 44C0 54 8 60 40 64C72 60 80 54 74 44C68 34 50 26 40 20Z" fill="url(#fg1)" opacity="0.3"/>
+          <defs><linearGradient id="fg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D4A574"/><stop offset="50%" stop-color="#F0D5A8"/><stop offset="100%" stop-color="#C49B5A"/></linearGradient></defs>
+        </svg>
+      </div>
+      <h2 class="footer-brand">LOTUS</h2>
+      <p class="footer-sub">Fine Dining Experience</p>
+
+      <!-- Ornamental divider -->
+      <div class="footer-ornament">
+        <span class="orn-line"></span>
+        <span class="orn-diamond"></span>
+        <span class="orn-line"></span>
+      </div>
+
+      <!-- DeepCipher Credits -->
+      <div class="credits-block">
+        <p class="credits-label">Designed & Developed by</p>
+        <a href="https://deepcipher-studio.vercel.app/" target="_blank" rel="noopener" class="credits-brand-link">
+          <span class="credits-brand-text">DeepCipher</span>
+          <span class="credits-brand-glow">DeepCipher</span>
+        </a>
+        <a href="tel:+918197174493" class="credits-phone">+91 81971 74493</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
