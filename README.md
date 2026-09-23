@@ -1,170 +1,111 @@
-# LOTUS HOTEL INN — Digital Menu
+<div align="center">
 
-A refined QR-powered digital dining experience designed for **LOTUS HOTEL INN**.
+# 🪷 LOTUS HOTEL INN
+### Premium Digital Dining Experience
 
-━━━━━━━━━━━━━━━━━━━━
+*A refined, QR-powered digital menu engineered for seamless table-side ordering and breathtaking aesthetics.*
 
-### OVERVIEW
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
+[![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)](#)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](#)
 
-This project is a premium, mobile-first digital menu system engineered for seamless table-side ordering and browsing. By scanning a bespoke QR code, guests are instantly immersed in a luxury digital environment that perfectly reflects the physical elegance of LOTUS HOTEL INN. 
+[Live Digital Menu](https://deepakparagi.github.io/LOTUS-MENU/) • [Generate QR Card](https://deepakparagi.github.io/LOTUS-MENU/qr-card/)
 
-The architecture is entirely static and lightweight, prioritizing ultra-fast loading over mobile networks without sacrificing a high-end visual aesthetic.
+</div>
 
-━━━━━━━━━━━━━━━━━━━━
+---
 
-### LIVE EXPERIENCE
+<br>
 
-**View the live digital menu here:**
-[LOTUS HOTEL INN Menu](https://deepakparagi.github.io/LOTUS-MENU/)
+## ✨ The Elite Experience
 
-**Generate a Tabletop QR Card:**
-[QR Generator](https://deepakparagi.github.io/LOTUS-MENU/qr-card/)
+By scanning a bespoke tabletop QR code, guests are instantly immersed in a luxury digital environment that mirrors the physical elegance of **LOTUS HOTEL INN**. 
 
-━━━━━━━━━━━━━━━━━━━━
+> 🥂 *The architecture is entirely static and lightweight, prioritizing ultra-fast loading over mobile networks without sacrificing a high-end visual aesthetic.*
 
-### FEATURES
+### 🌟 Signature Elements
+* 🌸 **3D Golden Lotus:** A procedurally generated, gently breathing 3D lotus flower greets guests in the hero section, crafted with Three.js.
+* ✨ **Ambient Particles:** A continuous flow of golden particles creates a mesmerizing background atmosphere.
+* 📱 **Fluid Navigation:** Beautiful lazy-loaded cards and a distraction-free, full-bleed image viewer.
+* ⚡ **Zero Backend:** Pure front-end magic. No downloads, no waiting—just instant access.
 
-- **QR-Based Access:** Instant load with no app downloads required.
-- **Mobile-First Design:** Fluid layout optimized for all modern smartphones.
-- **Premium Menu Viewer:** High-fidelity image gallery with smooth transitions.
-- **Serial Card Navigation:** Effortlessly page through the curated menu sections.
-- **Fullscreen Viewing:** Distraction-free, immersive full-bleed image display.
-- **Graceful Fallbacks:** Intelligent loading logic handles missing images without breaking the UI.
-- **Lightweight Architecture:** Zero-backend, pure HTML/CSS/JS deployed statically for maximum performance and security.
+<br>
 
-━━━━━━━━━━━━━━━━━━━━
+## 🍽️ Culinary Journey
 
-### MENU STRUCTURE
+The menu is designed to guide guests through a carefully curated sequence:
 
-The menu is designed to guide guests through a curated culinary journey:
+| Pg | Chapter | Description |
+| :---: | :--- | :--- |
+| **0** | **Welcome** | *The introduction to the LOTUS experience.* |
+| **1** | **Beverages & Soups** | *Refreshing drinks, soups, and light salads.* |
+| **2** | **Vegetarian Starters** | *Crispy snacks and vegetarian appetizers.* |
+| **3** | **Non-Veg & Tandoor** | *Premium non-vegetarian starters and grill.* |
+| **4** | **Veg Main Course** | *Rich and authentic vegetarian curries.* |
+| **5** | **Non-Veg Main Course** | *Signature non-vegetarian delicacies.* |
+| **6** | **Rice & Breads** | *Aromatic Biryani and traditional Indian breads.* |
+| **7** | **Global Favourites** | *A selection of international classics.* |
+| **8** | **Desserts** | *Sweet finishes and decadent treats.* |
+| **9** | **Thank You** | *Our gratitude for dining with us.* |
 
-* **00** — Welcome
-* **01** — Beverages / Soups / Salads
-* **02** — Snacks / Vegetarian Starters
-* **03** — Non-Vegetarian Starters / Tandoor & Grill
-* **04** — Vegetarian Main Course
-* **05** — Non-Vegetarian Main Course
-* **06** — Biryani / Rice / Indian Breads
-* **07** — Global Favourites
-* **08** — Desserts & Sweet Finishes
-* **09** — Thank You
+<br>
 
-━━━━━━━━━━━━━━━━━━━━
+## 🛠️ How It Works (Adding Menu Pages)
 
-### PROJECT STRUCTURE
+The system automatically loads images from the `/LOTUS/` directory.
 
-```text
-LOTUS-MENU/
-├── index.html           # Main digital menu entry point
-├── main.js              # Application logic (lazy loading, lightbox, animations)
-├── style.css            # Luxury design system and responsive layout
-├── package.json         # Project dependencies (Vite)
-├── vite.config.js       # Vite configuration for GitHub Pages deployment
-├── qr-card/
-│   └── index.html       # Standalone QR card generation and print utility
-└── LOTUS/
-    ├── 00.jpg           # Menu images (dynamically loaded)
-    ├── 1.jpg
-    ├── 2.jpg
-    └── ...
+> [!IMPORTANT]
+> **Naming Convention:** Images must be named serially from **`0`** to **`9`** (e.g., `0.png`, `1.png`, etc.). **Zero-padding is no longer required!**
+
+Supported formats automatically fall back gracefully through `.png`, `.jpg`, `.jpeg`, and `.webp`. If an image is temporarily missing, the system gracefully hides that section rather than displaying broken links.
+
+<br>
+
+## 🚀 Quick Start (Local Dev)
+
+Want to run the menu locally and experience the 3D lotus and particles at full 60FPS? 
+
+<details>
+<summary><b>Click to reveal local setup instructions 💻</b></summary>
+<br>
+
+1️⃣ **Install dependencies:**
+```bash
+npm install
 ```
 
-━━━━━━━━━━━━━━━━━━━━
-
-### HOW IT WORKS
-
-1. **Scan:** A guest scans the tabletop QR code.
-2. **Land:** They arrive at the LOTUS landing page, greeted by the signature ambient particle effect.
-3. **Browse:** The menu collection is presented as elegant, lazy-loaded cards.
-4. **Select:** Tapping a section opens it.
-5. **Immerse:** The fullscreen viewer allows for distraction-free reading, with intuitive left/right navigation to page through the menu.
-
-━━━━━━━━━━━━━━━━━━━━
-
-### ADDING NEW MENU CARDS
-
-Menu images are loaded dynamically from the `/LOTUS/` directory.
-
-**Naming Convention:**
-Images must be named serially. The first and last images use zero-padding, while the interior pages are single digits:
-
-```text
-LOTUS/
-  00.jpg
-  1.jpg
-  2.jpg
-  3.jpg
-  4.jpg
-  5.jpg
-  6.jpg
-  7.jpg
-  8.jpg
-  09.jpg
+2️⃣ **Start the lightning-fast Vite server:**
+```bash
+npm run dev
 ```
 
-**Supported Formats:**
-The system automatically attempts to load `.jpg`, `.jpeg`, `.png`, and `.webp`. If an image is temporarily missing, the system gracefully hides that section rather than displaying broken links.
+3️⃣ **View the app:** 
+Open `http://localhost:5173` in your browser.
 
-━━━━━━━━━━━━━━━━━━━━
+</details>
 
-### LOCAL DEVELOPMENT
+<br>
 
-To run this project locally:
+## 🎨 The Design System
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+Our UI isn't built with generic templates—it's a custom luxury system:
+* 🖋️ **Typography:** *Playfair Display* for luxurious, editorial headings. *Inter* for highly legible, modern UI text.
+* 🎨 **Color Palette:** Deep Charcoal (<kbd>#0A0A0A</kbd>) layered with Champagne Gold (<kbd>#D4A574</kbd>) and Warm Ivory (<kbd>#FFF8E7</kbd>).
+* 🌬️ **Spacing:** Generous, airy padding to create a feeling of exclusivity and calm.
 
-2. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+<br>
 
-3. **View the app:**
-   Open `http://localhost:5173` in your browser.
+---
 
-━━━━━━━━━━━━━━━━━━━━
-
-### DEPLOYMENT
-
-This project is configured for free static hosting via **GitHub Pages**.
-
-Because the project is built with Vite, the `vite.config.js` is set up with a base path of `/LOTUS-MENU/` to ensure all relative asset paths resolve correctly on GitHub Pages.
-
-To deploy updates, simply commit to the `main` branch. GitHub Pages will automatically serve the static content.
-
-━━━━━━━━━━━━━━━━━━━━
-
-### DESIGN SYSTEM
-
-- **Typography:** *Playfair Display* for luxurious, editorial headings. *Inter* for highly legible, modern UI text.
-- **Color Palette:** Deep Charcoal (`#0A0A0A`) layered with Champagne Gold (`#D4A574`, `#C49B5A`) and Warm Ivory (`#FFF8E7`).
-- **Spacing:** Generous, airy padding to create a feeling of exclusivity and calm.
-- **Animations:** Subtle particle floats, gentle hover lifts, and fluid modal transitions to make the interface feel alive but restrained.
-
-━━━━━━━━━━━━━━━━━━━━
-
-### TECHNOLOGY
-
-- **HTML5:** Semantic structure.
-- **Vanilla CSS:** Custom luxury design system (no generic frameworks like Tailwind or Bootstrap).
-- **Vanilla JavaScript (ES6):** Lightweight DOM manipulation and Intersection Observers.
-- **Vite:** Next-generation frontend tooling for fast local development.
-- **qrcode:** Client-side QR generation for the printable card.
-
-━━━━━━━━━━━━━━━━━━━━
-
-### CLIENT
-
+<div align="center">
+  
 **LOTUS HOTEL INN**
 
-━━━━━━━━━━━━━━━━━━━━
+Designed & Developed by<br>
+### 👑 DEEP CIPHER
+*Digital Hospitality Experience*<br>
+📞 +91 81971 74493
 
-### DIGITAL EXPERIENCE
-
-Designed & Developed by
-
-**DEEP CIPHER**  
-Digital Hospitality Experience  
-+91 81971 74493
+</div>
