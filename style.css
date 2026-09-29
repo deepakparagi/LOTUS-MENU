@@ -670,16 +670,29 @@ body {
 .credits-brand-text {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  letter-spacing: 4px;
-  background: linear-gradient(135deg, var(--gold-300), var(--gold-200), var(--gold-400));
+  letter-spacing: 5px;
+  background: linear-gradient(
+    90deg, 
+    var(--gold-400) 0%, 
+    var(--gold-200) 25%, 
+    #FFF 50%, 
+    var(--gold-200) 75%, 
+    var(--gold-400) 100%
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transition: transform 0.4s var(--ease-out-expo), opacity 0.4s ease;
   position: relative;
   z-index: 1;
+  animation: eliteShine 4s linear infinite;
+}
+
+@keyframes eliteShine {
+  to { background-position: 200% center; }
 }
 
 .credits-brand-glow {

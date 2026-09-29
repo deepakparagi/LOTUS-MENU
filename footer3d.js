@@ -6,82 +6,77 @@ if (footerCanvas) {
   
   // Camera
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth / footerCanvas.parentElement.clientHeight, 0.1, 100);
-  camera.position.z = 12;
+  camera.position.z = 10;
 
   // Renderer
   const renderer = new THREE.WebGLRenderer({ canvas: footerCanvas, alpha: true, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.0;
+  renderer.toneMappingExposure = 1.2;
   
   // Lighting
-  const light = new THREE.PointLight(0xd4a574, 3, 50);
-  light.position.set(0, 5, 5);
-  scene.add(light);
-  
-  const fillLight = new THREE.DirectionalLight(0x8a5a2b, 2);
-  fillLight.position.set(-5, -5, -5);
-  scene.add(fillLight);
-  
-  const ambient = new THREE.AmbientLight(0x221100, 2);
+  const ambient = new THREE.AmbientLight(0xffeedd, 1);
   scene.add(ambient);
+  
+  const pointLight = new THREE.PointLight(0xd4a574, 5, 20);
+  pointLight.position.set(0, 0, 2);
+  scene.add(pointLight);
 
-  // Group for the main centerpiece
   const centerGroup = new THREE.Group();
   scene.add(centerGroup);
 
-  // 1. Wireframe Outer Sphere
-  const outerGeo = new THREE.IcosahedronGeometry(3.5, 1);
-  const outerMat = new THREE.MeshPhysicalMaterial({
-    color: 0xd4a574,
-    metalness: 0.9,
-    roughness: 0.1,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.15
-  });
-  const outerMesh = new THREE.Mesh(outerGeo, outerMat);
-  centerGroup.add(outerMesh);
+  // Elite 3D Geometry: A delicate golden geodesic sphere
+  // Icosahedron with detail 2 creates a beautiful complex geometric sphere
+  const geometry = new THREE.IcosahedronGeometry(4.5, 2);
   
-  // 2. Inner Glowing Diamond (Octahedron)
-  const innerGeo = new THREE.OctahedronGeometry(2, 0);
-  const innerMat = new THREE.MeshPhysicalMaterial({
-    color: 0x050505,
-    emissive: 0x3a2000,
-    metalness: 1.0,
-    roughness: 0.2,
-    clearcoat: 1.0,
-    clearcoatRoughness: 0.1,
+  const edges = new THREE.EdgesGeometry(geometry);
+  const lineMat = new THREE.LineBasicMaterial({ 
+    color: 0xd4a574,
     transparent: true,
-    opacity: 0.9
+    opacity: 0.12, // Very faint, subtle, luxury
+    depthWrite: false
   });
-  const innerMesh = new THREE.Mesh(innerGeo, innerMat);
-  centerGroup.add(innerMesh);
+  const lines = new THREE.LineSegments(edges, lineMat);
+  centerGroup.add(lines);
 
-  // 3. Floating Gold Dust Particles
+  // Floating Gold Dust Particles
   const particlesGeo = new THREE.BufferGeometry();
-  const particlesCount = 150;
+  const particlesCount = 200;
   const posArray = new Float32Array(particlesCount * 3);
   const speedArray = new Float32Array(particlesCount);
   
   for(let i = 0; i < particlesCount * 3; i+=3) {
     // Spread across the footer width and height
     posArray[i] = (Math.random() - 0.5) * 30; // x
-    posArray[i+1] = (Math.random() - 0.5) * 15; // y
-    posArray[i+2] = (Math.random() - 0.5) * 10 - 5; // z
+    posArray[i+1] = (Math.random() - 0.5) * 20; // y
+    posArray[i+2] = (Math.random() - 0.5) * 15 - 5; // z
     
-    speedArray[i/3] = 0.5 + Math.random();
+    speedArray[i/3] = 0.2 + Math.random() * 0.5;
   }
   
   particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
   particlesGeo.setAttribute('aSpeed', new THREE.BufferAttribute(speedArray, 1));
   
+  // Custom particle sprite (soft circle) to make them look like glowing orbs
+  const canvas = document.createElement('canvas');
+  canvas.width = 32;
+  canvas.height = 32;
+  const ctx = canvas.getContext('2d');
+  const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+  gradient.addColorStop(0, 'rgba(255, 248, 231, 1)'); // var(--gold-100)
+  gradient.addColorStop(0.2, 'rgba(212, 165, 116, 0.8)'); // var(--gold-300)
+  gradient.addColorStop(1, 'rgba(212, 165, 116, 0)');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 32, 32);
+  const particleTexture = new THREE.CanvasTexture(canvas);
+  
   const particlesMat = new THREE.PointsMaterial({
-    size: 0.08,
-    color: 0xd4a574,
+    size: 0.2,
+    map: particleTexture,
     transparent: true,
-    opacity: 0.6,
-    blending: THREE.AdditiveBlending
+    opacity: 0.7,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
   });
   
   const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
@@ -94,15 +89,13 @@ if (footerCanvas) {
     requestAnimationFrame(animate);
     const time = clock.getElapsedTime();
     
-    // Rotate the 3D centerpiece
-    outerMesh.rotation.y = time * 0.15;
-    outerMesh.rotation.x = time * 0.1;
+    // Smooth, slow rotation of the geodesic sphere
+    lines.rotation.y = time * 0.05;
+    lines.rotation.x = time * 0.03;
+    lines.rotation.z = time * 0.02;
     
-    innerMesh.rotation.y = time * -0.2;
-    innerMesh.rotation.z = time * 0.15;
-    
-    // Gentle floating effect
-    centerGroup.position.y = Math.sin(time * 0.8) * 0.4;
+    // Gentle floating effect for the structure
+    centerGroup.position.y = Math.sin(time * 0.5) * 0.3;
 
     // Animate Particles
     const positions = particlesGeo.attributes.position.array;
@@ -111,14 +104,14 @@ if (footerCanvas) {
     for(let i = 0; i < particlesCount; i++) {
       const i3 = i * 3;
       // move up slowly
-      positions[i3 + 1] += Math.sin(time + speeds[i]) * 0.01 + speeds[i] * 0.02;
+      positions[i3 + 1] += speeds[i] * 0.01;
       
       // gently sway x
-      positions[i3] += Math.cos(time * 0.5 + i) * 0.01;
+      positions[i3] += Math.cos(time * 0.5 + i) * 0.005;
       
       // reset if too high
-      if (positions[i3 + 1] > 8) {
-        positions[i3 + 1] = -8;
+      if (positions[i3 + 1] > 10) {
+        positions[i3 + 1] = -10;
       }
     }
     particlesGeo.attributes.position.needsUpdate = true;
