@@ -21,8 +21,8 @@
   --text-muted: #5A554E;
 
   /* Typography */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-body: 'Montserrat', -apple-system, sans-serif;
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -535,211 +535,160 @@ body {
   pointer-events: none;
 }
 
+/* ─── Elite New Footer Layout ─── */
 .footer-inner {
   position: relative;
   z-index: 2;
-  max-width: 600px;
   width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-xl);
 }
 
-/* ─── Large Lotus Icon ─── */
-.footer-lotus {
-  margin-bottom: 0.75rem;
-  animation: lotusFloat 4s ease-in-out infinite;
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.footer-lotus-icon {
-  width: 72px;
-  height: 58px;
-  filter: drop-shadow(0 0 20px rgba(212, 165, 116, 0.2));
-  transition: filter 0.5s ease, transform 0.5s var(--ease-out-expo);
+.footer-lotus-icon-new {
+  width: 60px;
+  height: 50px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 15px rgba(212, 165, 116, 0.3));
 }
 
-.footer-lotus:hover .footer-lotus-icon {
-  filter: drop-shadow(0 0 30px rgba(212, 165, 116, 0.4));
-  transform: scale(1.08);
-}
-
-/* ─── LOTUS Title ─── */
-.footer-brand {
+.footer-huge-text {
   font-family: var(--font-display);
-  font-size: 2.2rem;
+  font-size: clamp(3rem, 12vw, 7rem);
   font-weight: 700;
-  letter-spacing: 8px;
-  background: linear-gradient(
-    135deg,
-    var(--gold-300) 0%,
-    var(--gold-100) 25%,
-    var(--gold-300) 50%,
-    var(--gold-100) 75%,
-    var(--gold-300) 100%
-  );
-  background-size: 200% 200%;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  background: linear-gradient(180deg, var(--gold-100) 0%, var(--gold-300) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.2rem;
-  transition: transform 0.4s var(--ease-out-expo);
-  cursor: default;
-  animation: shimmer 6s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+  padding-left: 0.2em; /* offset letter-spacing so it stays centered */
 }
 
-.footer-brand:hover {
-  transform: scale(1.04);
-}
-
-/* ─── Subtitle ─── */
-.footer-sub {
-  font-size: 0.65rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  font-weight: 300;
-  margin-bottom: 1.8rem;
-  opacity: 0.7;
-}
-
-/* ─── Ornamental Divider ─── */
-.footer-ornament {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.8rem;
-}
-
-.orn-line {
-  width: 50px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.3));
-}
-
-.orn-line:last-child {
-  background: linear-gradient(90deg, rgba(212, 165, 116, 0.3), transparent);
-}
-
-.orn-diamond {
-  width: 7px;
-  height: 7px;
-  background: var(--gold-400);
-  transform: rotate(45deg);
-  opacity: 0.5;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 8px rgba(212, 165, 116, 0);
-}
-
-.footer-ornament:hover .orn-diamond {
-  opacity: 1;
-  box-shadow: 0 0 12px rgba(212, 165, 116, 0.4);
-}
-
-.footer-ornament:hover .orn-line {
-  background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.5));
-}
-
-.footer-ornament:hover .orn-line:last-child {
-  background: linear-gradient(90deg, rgba(212, 165, 116, 0.5), transparent);
-}
-
-/* ─── Credits Block ─── */
-.credits-block {
-  text-align: center;
-}
-
-.credits-label {
-  font-size: 0.55rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.4rem;
+.footer-tagline-new {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
   font-weight: 400;
+  color: var(--gold-200);
+  opacity: 0.8;
+  text-transform: uppercase;
+  margin-left: 0.4em;
 }
 
-.credits-brand-link {
-  display: block;
+.footer-divider-new {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.3), transparent);
+  margin: 3rem 0;
+}
+
+.footer-bottom-new {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-col-new {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col-new:last-child {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-label-new {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.dc-brand-new {
   position: relative;
   text-decoration: none;
-  margin-bottom: 0.35rem;
-  overflow: hidden;
+  display: inline-block;
 }
 
-.credits-brand-text {
+.dc-text-new {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 5px;
-  background: linear-gradient(
-    90deg, 
-    var(--gold-400) 0%, 
-    var(--gold-200) 25%, 
-    #FFF 50%, 
-    var(--gold-200) 75%, 
-    var(--gold-400) 100%
-  );
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, var(--gold-400) 0%, var(--gold-200) 25%, #FFF 50%, var(--gold-200) 75%, var(--gold-400) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  transition: transform 0.4s var(--ease-out-expo), opacity 0.4s ease;
+  animation: eliteShine 4s linear infinite;
   position: relative;
   z-index: 1;
-  animation: eliteShine 4s linear infinite;
+  transition: transform 0.4s var(--ease-out-expo);
 }
 
-@keyframes eliteShine {
-  to { background-position: 200% center; }
-}
-
-.credits-brand-glow {
-  display: block;
+.dc-glow-new {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 4px;
-  background: linear-gradient(135deg, var(--gold-100), #FFE4C4, var(--gold-100));
+  color: transparent;
+  background: var(--gold-200);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: blur(0px);
+  filter: blur(12px);
   opacity: 0;
-  transition: all 0.4s var(--ease-out-expo);
-  z-index: 2;
+  z-index: 0;
+  transition: opacity 0.4s ease;
 }
 
-.credits-brand-link:hover .credits-brand-text {
-  transform: translateY(-1px);
-}
+.dc-brand-new:hover .dc-text-new { transform: translateY(-2px); }
+.dc-brand-new:hover .dc-glow-new { opacity: 0.6; }
 
-.credits-brand-link:hover .credits-brand-glow {
-  opacity: 1;
-  filter: blur(0px);
-  text-shadow: 0 0 20px rgba(240, 213, 168, 0.3);
-}
-
-.credits-phone {
-  display: inline-block;
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  text-decoration: none;
+.contact-number-new {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 300;
   letter-spacing: 2px;
-  font-weight: 400;
-  padding: 0.3rem 0.8rem;
-  border-radius: 100px;
-  transition: all 0.4s var(--ease-out-expo);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.credits-phone:hover {
-  color: var(--gold-200);
-  background: rgba(212, 165, 116, 0.08);
+.contact-number-new:hover { color: var(--gold-300); }
+
+@media (max-width: 767px) {
+  .footer-bottom-new {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-col-new:last-child {
+    align-items: center;
+    text-align: center;
+  }
 }
 
 /* ═══ ANIMATIONS ═══ */
