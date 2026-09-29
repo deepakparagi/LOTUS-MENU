@@ -720,6 +720,39 @@ body {
   50%      { transform: translateY(-6px); }
 }
 
+/* ─── Lotus SVG Blooming Animation ─── */
+.petal-center {
+  transform-origin: 50% 100%;
+  animation: breatheCenter 4s ease-in-out infinite alternate;
+}
+
+.petal-mid {
+  transform-origin: 50% 100%;
+  animation: breatheMid 4s ease-in-out infinite alternate;
+  animation-delay: 0.5s;
+}
+
+.petal-outer {
+  transform-origin: 50% 100%;
+  animation: breatheOuter 4s ease-in-out infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes breatheCenter {
+  0% { transform: scaleY(0.95); }
+  100% { transform: scaleY(1.02); }
+}
+
+@keyframes breatheMid {
+  0% { transform: scaleX(0.95) scaleY(0.97); }
+  100% { transform: scaleX(1.05) scaleY(1.02); }
+}
+
+@keyframes breatheOuter {
+  0% { transform: scaleX(0.92) scaleY(0.95); }
+  100% { transform: scaleX(1.08) scaleY(1.05); }
+}
+
 /* ═══════════════════════════════════════════════════
    RESPONSIVE — All device sizes
    ═══════════════════════════════════════════════════ */
