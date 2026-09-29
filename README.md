@@ -46,9 +46,7 @@ The menu is designed to guide guests through a carefully curated sequence:
 | **4** | **Veg Main Course** | *Rich and authentic vegetarian curries.* |
 | **5** | **Non-Veg Main Course** | *Signature non-vegetarian delicacies.* |
 | **6** | **Rice & Breads** | *Aromatic Biryani and traditional Indian breads.* |
-| **7** | **Global Favourites** | *A selection of international classics.* |
-| **8** | **Desserts** | *Sweet finishes and decadent treats.* |
-| **9** | **Thank You** | *Our gratitude for dining with us.* |
+| **7** | **Thank You** | *Our gratitude for dining with us.* |
 
 <br>
 
@@ -57,7 +55,7 @@ The menu is designed to guide guests through a carefully curated sequence:
 The system automatically loads images from the `/LOTUS/` directory.
 
 > [!IMPORTANT]
-> **Naming Convention:** Images must be named serially from **`0`** to **`9`** (e.g., `0.png`, `1.png`, etc.). **Zero-padding is no longer required!**
+> **Naming Convention:** Images must be named serially from **`final-00`** to **`final-07`** (e.g., `final-00.png`, `final-01.png`, etc.).
 
 Supported formats automatically fall back gracefully through `.png`, `.jpg`, `.jpeg`, and `.webp`. If an image is temporarily missing, the system gracefully hides that section rather than displaying broken links.
 

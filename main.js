@@ -7,7 +7,7 @@
   'use strict';
 
   const START_PAGE = 0;
-  const END_PAGE = 9;
+  const END_PAGE = 7;
   const IMAGE_FOLDER = 'LOTUS';
   const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp'];
 
@@ -67,7 +67,7 @@
         return;
       }
       
-      let filename = i.toString();
+      let filename = `final-0${i}`;
       
       img.src = `${IMAGE_FOLDER}/${filename}.${EXTENSIONS[extIndex]}`;
     };
