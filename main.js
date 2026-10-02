@@ -67,7 +67,7 @@
         return;
       }
       
-      let filename = `final-0${i}`;
+      let filename = `0${i}`;
       
       img.src = `${IMAGE_FOLDER}/${filename}.${EXTENSIONS[extIndex]}`;
     };
